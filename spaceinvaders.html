@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        let mleft = 50;
+        nbala = 0;
+        let pos = 0;
+        let contador = 0;
+
+        document.addEventListener("keydown", function (e){
+            if(e.keyCode == 39){
+                moveRight();
+            }
+            if(e.keyCode == 37){
+                moveLeft();
+            }
+            if(e.keyCode == 32){
+                shot();
+            }
+        })
+
+        function moveRight() {
+            if(mleft != 80){
+                let nave = document.getElementById("nave");
+                mleft = mleft + 2;
+                nave.style.marginLeft = mleft + "%";
+            }
+        }
+
+        function moveLeft() {
+            if(mleft != 20){
+                let nave = document.getElementById("nave");
+                mleft = mleft - 2;
+                nave.style.marginLeft = mleft + "%";
+            }
+        }
+        function shot(){
+            nbala = nbala + 1;
+            let bala = document.createElement('bala' + nbala);
+            document.body.appendChild(bala);
+            bala.setAttribute("id", "bala" + nbala);
+            let balAux = document.getElementById("bala" + nbala);
+            balAux.style.marginTop = 43 + "%";
+            balAux.style.marginLeft = mleft + "%";
+            balAux.style.width = 3 + "px";
+            balAux.style.height = 30 + "px";
+            balAux.style.backgroundColor = "black";
+            balAux.style.position = "absolute";
+            let duration = 100;
+            var test = setInterval(pium,100);
+
+            function pium (){
+                if(contador == 10){
+                    clearInterval(test);
+                    balAux.remove();
+                    pos = 0;
+                    contador = 0;
+                }else{
+                contador++;
+                pos = pos - 80;
+                balAux.style.top = `${pos}px`;
+                console.log(pos);
+                }
+            }
+        }
+
+    </script>
+    
+    <style>
+        #nave{
+            width: 30px;
+            height: 30px;
+            background-color: red;
+            border-radius: 15px;
+            position: absolute;
+            margin-left: 50%;
+            margin-top: 45%;
+        }
+        .invaders1{
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            border-radius: 25px;
+            position: absolute;
+        }
+        .invaders2{
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            border-radius: 25px;
+            position: absolute;
+            margin-top: 10%;
+        }
+        .invaders3{
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            border-radius: 25px;
+            position: absolute;
+            margin-top: 20%;
+        }
+
+    </style>
+
+    <title>Mi primera web</title>
+</head>
+
+<body style="background-color: blue;">
+    <div id="nave"></div>
+    <div class="invaders1" style="margin-left: 20%;"></div>
+    <div class="invaders1" style="margin-left: 25%;"></div>
+    <div class="invaders1" style="margin-left: 30%;"></div>
+    <div class="invaders1" style="margin-left: 35%;"></div>
+    <div class="invaders1" style="margin-left: 40%;"></div>
+    <div class="invaders1" style="margin-left: 45%;"></div>
+    <div class="invaders1" style="margin-left: 50%;"></div>
+    <div class="invaders1" style="margin-left: 55%;"></div>
+    <div class="invaders1" style="margin-left: 60%;"></div>
+    <div class="invaders1" style="margin-left: 65%;"></div>
+    <div class="invaders1" style="margin-left: 70%;"></div>
+    <div class="invaders1" style="margin-left: 75%;"></div>
+    <div class="invaders1" style="margin-left: 80%;"></div>
+
+    <div class="invaders2" style="margin-left: 30%;"></div>
+    <div class="invaders2" style="margin-left: 35%;"></div>
+    <div class="invaders2" style="margin-left: 40%;"></div>
+    <div class="invaders2" style="margin-left: 45%;"></div>
+    <div class="invaders2" style="margin-left: 50%;"></div>
+    <div class="invaders2" style="margin-left: 55%;"></div>
+    <div class="invaders2" style="margin-left: 60%;"></div>
+    <div class="invaders2" style="margin-left: 65%;"></div>
+    <div class="invaders2" style="margin-left: 70%;"></div>
+
+    <div class="invaders3" style="margin-left: 40%;"></div>
+    <div class="invaders3" style="margin-left: 45%;"></div>
+    <div class="invaders3" style="margin-left: 50%;"></div>
+    <div class="invaders3" style="margin-left: 55%;"></div>
+    <div class="invaders3" style="margin-left: 60%;"></div>
+
+</body>
+
+</html>
